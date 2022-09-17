@@ -10,7 +10,7 @@ export default function handler(
 ) {
     try {
         axios.get("https://main.d22uf180o8wjsx.amplifyapp.com/round-1.json").then((courseData) => {
-            const roundPath = path.join(process.cwd(),"round-1.json");
+            const roundPath = path.join(process.cwd(),"public/round-1.json");
             let data: { [key: string]: { stroke: number, par: number, strokes: number } } = JSON.parse(JSON.stringify(courseData.data))
             const request: { hole: number, score: number } = req.body
 
