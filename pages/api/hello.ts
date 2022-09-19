@@ -8,6 +8,7 @@ type Data = {
   root: string[]
   page: string[]
   chunks:string[]
+  out:string[]
 }
 
 export default function handler(
@@ -18,6 +19,7 @@ export default function handler(
   const root = readdirSync(path.join(process.cwd()))
   const pages = readdirSync(path.join(process.cwd(),"pages"))
   const chunks =  readdirSync(path.join(process.cwd(), "chunks"))
+  const out = readdirSync(path.join(process.cwd(),"../"))
 
-  res.status(200).json({ name: 'John Doe', root: root, page:pages,chunks:chunks })
+  res.status(200).json({ name: 'John Doe', root: root, page:pages,chunks:chunks, out:out })
 }
