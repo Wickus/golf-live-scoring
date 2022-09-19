@@ -6,6 +6,8 @@ import path from "path";
 type Data = {
   name: string
   root: string[]
+  page: string[]
+  chunks:string[]
 }
 
 export default function handler(
@@ -13,7 +15,9 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
 
-  const root = readdirSync(path.join(process.cwd(),"pages"))
+  const root = readdirSync(path.join(process.cwd()))
+  const pages = readdirSync(path.join(process.cwd(),"pages"))
+  const chunks =  readdirSync(path.join(process.cwd(), "chunks"))
 
-  res.status(200).json({ name: 'John Doe', root: root })
+  res.status(200).json({ name: 'John Doe', root: root, page:pages,chunks:chunks })
 }
